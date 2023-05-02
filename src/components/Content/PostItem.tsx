@@ -11,7 +11,6 @@ interface Props {
 }
 
 export function PostItem({ post, styles, }: Props) {
-  // TODO: 포스트 항목 스타일 조정하기
   const cover = post.frontMatter.cover
     ? post.frontMatter.cover
     : 'https://drive.google.com/uc?export=view&id=1SD9HD4JtWQip-4P24NoYgSj__iXXw3AT';
@@ -35,7 +34,10 @@ export function PostItem({ post, styles, }: Props) {
     bottom: css([
       tw` flex flex-row w-full justify-between items-center `,
       tw`
-        [a]:( px-2 py-1 rounded-2 inline-block bg-blue-100 border border-blue-500/20 )
+        [a]:(
+          px-2 py-1 rounded-2 inline-block bg-blue-100 border border-blue-500/20
+          hover:( bg-blue-500 text-white )
+        )
       `,
     ]),
   };

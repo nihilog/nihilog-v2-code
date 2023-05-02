@@ -5,15 +5,13 @@ import { AppLayout } from '@/layouts';
 import { getRecentPosts } from '@/utils/posts';
 import { IMDXList } from '@/types/mdx.types';
 import { PostItem } from '@/components/Content';
-import { Heading } from '@/components/Base';
+import { Heading, PageLink } from '@/components/Base';
 
 interface Props {
   posts: IMDXList[];
 }
 
 export default function IndexPage({ posts, }: Props) {
-  console.log(posts);
-  // TODO: 웬만하면 여기에는 최근 포스트가 들어와야 함.
   const style = {
     default: css([
       tw`  `,
@@ -33,7 +31,7 @@ export default function IndexPage({ posts, }: Props) {
               <PostItem key={post.frontMatter.id} post={post} />
             ))}
           </div>
-          {/* 더보기 버튼(포스트 목록으로) */}
+          <PageLink mode='button' href='/posts/page/1'>목록 더 보기</PageLink>
         </div>
       </AppLayout>
     </>

@@ -16,18 +16,20 @@ export function Heading({
 }: Props) {
   const style = {
     default: css([
+      tw` leading-[1.2] `,
       Role === 'h1' && tw`text-h1`,
       Role === 'h2' && tw`text-h2`,
       Role === 'h3' && tw`text-h3`,
       Role === 'h4' && tw`text-h4`,
       Role === 'h5' && tw`text-h5`,
-      tw` font-900 text-black-base flex leading-none text-justify break-all `,
+      tw` font-900 text-black-base flex text-justify break-all `,
       mode === 'sub-title' && tw`
         mb-5 py-3 px-2 border-l-[20px] border-black-base
       `,
       mode === 'title' && tw`
+        w-full
         [a]:(
-          p-3 block rounded-2 bg-black-100 border border-black-base/10 flex-[1] text-black-base/80
+          p-3 block bg-black-100 border border-black-base/10 flex-[1] text-black-base/80
           hover:( bg-black-base text-white )
         )
       `,
