@@ -34,7 +34,7 @@ export function AppLayout({
       tw`
         [body]:(
           p-5 bg-black-50
-          mb-sm:( bg-red-400 )
+          mb-sm:(  )
           mb-md:( bg-red-500 )
           mb-lg:( bg-red-600 )
         )

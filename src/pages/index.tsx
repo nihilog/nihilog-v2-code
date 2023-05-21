@@ -4,7 +4,7 @@ import { GetStaticProps } from 'next';
 import { AppLayout } from '@/layouts';
 import { getRecentPosts } from '@/utils/posts';
 import { IMDXList } from '@/types/mdx.types';
-import { PostItem } from '@/components/Content';
+import { PostList } from '@/components/Content';
 import { Heading, PageLink } from '@/components/Base';
 
 interface Props {
@@ -26,11 +26,7 @@ export default function IndexPage({ posts, }: Props) {
       <AppLayout title='홈'>
         <div css={style.default}>
           <Heading type='h2' mode='sub-title'>최근 포스트</Heading>
-          <div css={style.postList}>
-            {posts.map((post) => (
-              <PostItem key={post.frontMatter.id} post={post} />
-            ))}
-          </div>
+          <PostList posts={posts} />
           <PageLink mode='button' href='/posts/page/1'>목록 더 보기</PageLink>
         </div>
       </AppLayout>

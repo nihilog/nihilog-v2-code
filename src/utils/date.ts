@@ -14,7 +14,7 @@ export const setDate = (date: number | string | Date) => {
   const diff = dayjs().diff(date, 'days');
 
   if (diff >= 7) {
-    return dayjs(date).tz().format('YYYY-MM-DD HH:mm');
+    return dayjs(date).tz().format('YYYY년 M월 D일 HH:mm');
   } else {
     return dayjs(date).tz().fromNow();
   }

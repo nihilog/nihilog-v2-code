@@ -1,5 +1,5 @@
 import React from 'react';
-import tw, { css } from 'twin.macro';
+import tw, { css, TwStyle } from 'twin.macro';
 import { SerializedStyles } from '@emotion/react';
 import { IMDXList } from '@/types/mdx.types';
 import { Box, Heading, PageLink } from '../Base';
@@ -7,7 +7,7 @@ import { setDate } from '@/utils/date';
 
 interface Props {
   post: IMDXList;
-  styles?: SerializedStyles;
+  styles?: SerializedStyles | TwStyle;
 }
 
 export function PostItem({ post, styles, }: Props) {
@@ -25,7 +25,7 @@ export function PostItem({ post, styles, }: Props) {
       tw` mb-md:( block order-none w-[250px] h-[250px] ) `,
     ]),
     info: css([
-      tw` order-2 flex flex-col gap-3 items-start `,
+      tw` flex flex-col gap-3 items-start flex-1 shrink-0 `,
       tw` mb-sm:( order-none ) `,
     ]),
     desc: css([

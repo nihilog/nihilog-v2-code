@@ -1,5 +1,5 @@
 import React from 'react';
-import tw, { css } from 'twin.macro';
+import tw, { css, TwStyle } from 'twin.macro';
 import { SerializedStyles } from '@emotion/react';
 import Link from 'next/link';
 import { textStyle } from '@/styles';
@@ -7,8 +7,8 @@ import { textStyle } from '@/styles';
 interface Props {
   children: React.ReactNode;
   href: string;
-  mode?: ('page' | 'button' | 'nav' | 'title');
-  styles?: SerializedStyles;
+  mode?: ('page' | 'button' | 'nav' | 'title' | 'pagination');
+  styles?: SerializedStyles | TwStyle;
 }
 
 export function PageLink({
@@ -26,6 +26,10 @@ export function PageLink({
       `,
       mode === 'button' && tw`
         block w-full p-3 mt-10 text-mb-normal mb-sm:text-mb-sm mb-md:text-mb-md text-center text-black-base rounded-2 bg-blue-100 border border-blue-500/20
+        hover:( bg-blue-500 text-white )
+      `,
+      mode === 'pagination' && tw`
+        block p-2 bg-blue-100 border border-blue-500/20 rounded-2
         hover:( bg-blue-500 text-white )
       `,
       styles,

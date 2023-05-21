@@ -1,10 +1,10 @@
 import React from 'react';
-import tw, { css } from 'twin.macro';
+import tw, { css, TwStyle } from 'twin.macro';
 import { SerializedStyles } from '@emotion/react';
 import { Nav } from './Nav';
 
 interface Props {
-  styles?: SerializedStyles;
+  styles?: SerializedStyles | TwStyle;
 }
 
 export function Header({ styles, }: Props) {

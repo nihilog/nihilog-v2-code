@@ -1,5 +1,5 @@
 import React from 'react';
-import tw, { css } from 'twin.macro';
+import tw, { css, TwStyle } from 'twin.macro';
 import { SerializedStyles } from '@emotion/react';
 import {
   FaGithub, FaInstagram, FaRegCopyright, FaRegEnvelope
@@ -7,7 +7,7 @@ import {
 import { textStyle } from '@/styles';
 
 interface Props {
-  styles?: SerializedStyles;
+  styles?: SerializedStyles | TwStyle;
 }
 
 export function Footer({ styles, }: Props) {
