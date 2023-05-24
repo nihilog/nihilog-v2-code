@@ -30,7 +30,7 @@ export function PostItem({ post, styles, }: Props) {
 
   const style = {
     default: css([
-      tw` relative overflow-hidden `,
+      tw`  `,
       styles,
     ]),
     title: css([
