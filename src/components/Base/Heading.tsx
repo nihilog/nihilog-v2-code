@@ -1,18 +1,16 @@
 import React from 'react';
 import tw, { css, TwStyle } from 'twin.macro';
 import { SerializedStyles } from '@emotion/react';
-import Link from 'next/link';
 
 interface Props {
   children: React.ReactNode;
   type?: ('h1' | 'h2' | 'h3' | 'h4' | 'h5');
   mode?: ('normal' | 'sub-title' | 'title');
-  link?: string;
   styles?: SerializedStyles | TwStyle;
 }
 
 export function Heading({
-  children, type: Role = 'h1', mode = 'normal', link, styles,
+  children, type: Role = 'h1', mode = 'normal', styles,
 }: Props) {
   const style = {
     default: css([
@@ -26,17 +24,8 @@ export function Heading({
       mode === 'sub-title' && tw`
         mb-10 py-3 px-2 border-l-[20px] border-black-base
       `,
-      // mode === 'title' && tw`
-      //   w-full
-      //   [a]:(
-      //     text-justify text-ellipsis line-clamp-2 break-all bg-black-100 rounded-2 border border-black-base/10 flex-[1] text-black-base/80
-      //     hover:( bg-black-base text-white )
-      //   )
-      // `,
       mode === 'title' && tw`
-        w-full text-justify text-ellipsis line-clamp-2 break-all bg-black-100 rounded-2 border border-black-base/10 text-black-base/80
-        [a]:( p-3 flex-[1] block )
-        hover:( bg-black-base text-white )
+        text-ellipsis line-clamp-1 break-all text-black-500 hover:text-black-800 mb-2
       `,
       styles,
     ]),
@@ -51,15 +40,9 @@ export function Heading({
 
   return (
     <>
-      {link ? (
-        <Role css={style.default}>
-          <Link href={link} css={style.fontSize}>{children}</Link>
-        </Role>
-      ) : (
-        <Role css={style.default}>
-          <span css={style.fontSize}>{children}</span>
-        </Role>
-      )}
+      <Role css={style.default}>
+        <span css={style.fontSize}>{children}</span>
+      </Role>
     </>
   );
 }

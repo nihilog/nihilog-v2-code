@@ -12,7 +12,8 @@ interface Props {
 export function PostList({ posts, styles, }: Props) {
   const style = {
     default: css([
-      tw` flex flex-col gap-5 `,
+      tw` grid grid-cols-1 gap-5 `,
+      tw` mb-sm:( grid-cols-2 ) `,
       styles,
     ]),
   };
