@@ -13,8 +13,8 @@
   "homepage": "https://github.com/nihil-template/nihil-next-mdx-template#readme",
   "scripts": {
     "remove": "rm -rf node_modules/.cache && rm -rf build/",
-    "serve": "npm run remove && npm run open && next dev",
-    "start": "npm run remove && next build && npm run open && next start",
+    "serve": "npm run remove && next dev",
+    "start": "npm run remove && next build && next start",
     "build": "npm run remove && next build",
     "backupgit": "mv ../io/.git ../backup",
     "restoregit": "mv ../backup/.git ../io",
