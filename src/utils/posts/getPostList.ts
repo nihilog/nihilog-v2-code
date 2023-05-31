@@ -1,7 +1,18 @@
 import { parseJson } from './parseJson';
 
-export const getPostList = async (page: number, limit: number) => {
-  const posts = parseJson();
+type IPostListType = ('normal' | 'category' | 'tag');
+export const getPostList = async (page: number, limit: number, type: IPostListType = 'normal', keyword = '') => {
+  let posts = parseJson();
+
+  if (type === 'category') {
+    posts = posts.filter(
+      (post) => post.frontMatter.category === keyword
+    );
+  } else if (type === 'tag') {
+    posts = posts.filter(
+      (post) => post.frontMatter.tags.includes(keyword)
+    );
+  }
 
   const start = (page - 1) * limit;
   const end = start + limit;

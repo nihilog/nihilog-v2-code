@@ -5,3 +5,6 @@ export * from './getYear';
 export * from './getRecentPosts';
 export * from './getPostList';
 export * from './parseJson';
+export * from './getCategories';
+export * from './getCategoryPage';
+export * from './getCatagoryPostList';

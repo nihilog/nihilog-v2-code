@@ -31,9 +31,9 @@ export function Heading({
     ]),
     fontSize: css([
       tw`
-        text-[70%]
-        mb-sm:( text-[80%] )
-        mb-md:( text-[100%] )
+        text-[60%]
+        mb-sm:( text-[60%] )
+        mb-md:( text-[80%] )
       `,
     ]),
   };

@@ -10,10 +10,12 @@ interface Props {
   as?: string;
   mode?: ('page' | 'button' | 'nav' | 'title' | 'pagination');
   styles?: SerializedStyles | TwStyle;
+  // eslint-disable-next-line no-unused-vars
+  onClick?: (event: React.MouseEvent) => void;
 }
 
 export function PageLink({
-  children, href, as, mode = 'page', styles,
+  children, href, as, mode = 'page', styles, onClick,
 }: Props) {
   const style = {
     default: css([
@@ -39,7 +41,7 @@ export function PageLink({
 
   return (
     <>
-      <Link href={href} as={as} css={style.default}>{children}</Link>
+      <Link href={href} as={as} css={style.default} onClick={onClick}>{children}</Link>
     </>
   );
 }

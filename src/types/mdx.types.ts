@@ -22,3 +22,13 @@ export interface IMDX {
   frontMatter: IFrontMatter;
   content: MDXRemoteSerializeResult;
 }
+
+export interface ICategory {
+  category: string;
+  count: number;
+}
+
+export interface ITag {
+  tag: string;
+  count: number;
+}

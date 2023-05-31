@@ -23,7 +23,13 @@ export function PostItem({ post, styles, }: Props) {
 
   const onClickLink = useCallback(() => {
     router.push('/posts/[id]', post.fullPath);
-  }, []);
+  }, [ post, router, ]);
+
+  const onClickCategoryLink = useCallback((event: React.MouseEvent) => {
+    event.stopPropagation();
+
+    router.push(`/categories/${post.frontMatter.category}/page/1`);
+  }, [ post, router, ]);
 
   const onMouseEnterImage = useCallback(() => {
     setClassString('image-show');
@@ -46,9 +52,7 @@ export function PostItem({ post, styles, }: Props) {
       tw` w-full aspect-square z-10 p-3 absolute bg-black-base/70 flex flex-col `,
       tw` [&.image-hide]:( bottom-[-100%] opacity-0 ) `,
       tw` [&.image-show]:( bottom-0 opacity-100 ) `,
-      css(css`
-        transition: all .4s ease-in-out;
-      `),
+      tw` transition-all duration-[300ms] ease-in-out `,
     ]),
   };
 
@@ -71,10 +75,11 @@ export function PostItem({ post, styles, }: Props) {
           <span>카테고리</span>
           <Icon icon='eva:arrow-right-fill' />
           <PageLink
-            href='/categories/[category]'
-            as={`/categories/${post.frontMatter.category}`}
+            href='/categories/[category]/page/[page]'
+            as={`/categories/${post.frontMatter.category}/page/1`}
             mode='button'
             styles={tw`py-1 px-2`}
+            onClick={onClickCategoryLink}
           >
             {post.frontMatter.category}
           </PageLink>

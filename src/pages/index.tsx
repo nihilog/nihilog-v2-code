@@ -2,7 +2,7 @@ import React from 'react';
 import tw, { css } from 'twin.macro';
 import { GetStaticProps } from 'next';
 import { AppLayout } from '@/layouts';
-import { getRecentPosts } from '@/utils/posts';
+import { getCategories, getRecentPosts } from '@/utils/posts';
 import { IMDXList } from '@/types/mdx.types';
 import { PostList } from '@/components/Content';
 import { Heading, PageLink } from '@/components/Base';
@@ -36,6 +36,9 @@ export default function IndexPage({ posts, }: Props) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = getRecentPosts();
+  const categories = getCategories();
+
+  console.log(categories);
 
   return {
     props: {
