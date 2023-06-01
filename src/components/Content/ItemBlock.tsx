@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import tw, { css } from 'twin.macro';
 import { SerializedStyles } from '@emotion/react';
 import Link from 'next/link';
@@ -22,6 +22,14 @@ export function ItemBlock({ data, type, styles, }: Props) {
     }
   }, [ type, data, ]);
 
+  const dataName = useMemo(() => {
+    return type === 'category' ? categoryData?.category : tagData?.tag;
+  }, [ type, categoryData, tagData, ]);
+
+  const dataCount = useMemo(() => {
+    return type === 'category' ? categoryData?.count : tagData?.count;
+  }, [ type, categoryData, tagData, ]);
+
   const style = {
     default: css([
       tw`  `,
@@ -34,12 +42,12 @@ export function ItemBlock({ data, type, styles, }: Props) {
   return (
     <>
       <Link
-        href='/categories/[category]/page/[page]'
-        as={`/categories/${type}/page/1`}
+        href={`/${type === 'category' ? 'categories' : 'tags'}/[${type === 'category' ? 'category' : 'tag'}]/page/[page]`}
+        as={`/${type === 'category' ? 'categories' : 'tags'}/${dataName}/page/1`}
         css={style.default}
       >
-        <span css={style.name}>{type === 'category' ? categoryData?.category : tagData?.tag}</span>
-        <span css={style.count}>{type === 'category' ? categoryData?.count : tagData?.count}</span>
+        <span css={style.name}>{dataName}</span>
+        <span css={style.count}>{dataCount}</span>
       </Link>
     </>
   );

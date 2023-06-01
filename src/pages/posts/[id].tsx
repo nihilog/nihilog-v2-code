@@ -11,6 +11,7 @@ interface Props {
 }
 
 export default function PostPage({ post, }: Props) {
+  console.log(post);
   // TODO: 포스트 페이지 만들어야함.
   const style = {
     default: css([

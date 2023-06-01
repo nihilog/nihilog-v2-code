@@ -10,7 +10,7 @@ interface Props {
 export function Nav({ styles, }: Props) {
   const style = {
     default: css([
-      tw` flex flex-row gap-2 `,
+      tw` flex flex-row gap-2 flex-wrap justify-center `,
       styles,
     ]),
   };
@@ -22,6 +22,7 @@ export function Nav({ styles, }: Props) {
         <PageLink href='/info' mode='nav'>소개</PageLink>
         <PageLink href='/posts/page/1' mode='nav'>포스트 목록</PageLink>
         <PageLink href='/categories' mode='nav'>카테고리</PageLink>
+        <PageLink href='/tags' mode='nav'>태그 클라우드</PageLink>
       </nav>
     </>
   );

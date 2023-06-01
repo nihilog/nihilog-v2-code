@@ -1,7 +1,12 @@
 import { parseJson } from './parseJson';
 
 type IPostListType = ('normal' | 'category' | 'tag');
-export const getPostList = async (page: number, limit: number, type: IPostListType = 'normal', keyword = '') => {
+export const getPostList = async (
+  page: number,
+  limit: number,
+  type: IPostListType = 'normal',
+  keyword = ''
+) => {
   let posts = parseJson();
 
   if (type === 'category') {

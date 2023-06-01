@@ -1,21 +1,21 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
 import tw, { css } from 'twin.macro';
-import { getCategoryPage, getPostList } from '@/utils/posts';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { IMDXList } from '@/types/mdx.types';
 import { AppLayout } from '@/layouts';
 import { Heading } from '@/components/Base';
 import { Pagination, PostList } from '@/components/Content';
+import { getPostList, getTagPage } from '@/utils/posts';
 
 interface Props {
   totalPage: number;
   page: number;
   list: IMDXList[];
-  category: string;
+  tag: string;
 }
 
-export default function CategoryPage({
-  totalPage, page, list, category,
+export default function TagPage({
+  totalPage, page, list, tag,
 }: Props) {
   const style = {
     default: css([
@@ -25,13 +25,13 @@ export default function CategoryPage({
 
   return (
     <>
-      <AppLayout title={`'${category}' 카테고리 관련 포스트 목록`}>
+      <AppLayout title={`'${tag}' 태그 관련 포스트 목록`}>
         <div css={style.default}>
           <Heading type='h2' mode='sub-title'>
-            {`'${category}'`} 카테고리 관련 포스트 목록 총 {list.length}건
+            {`'${tag}'`} 태그 관련 포스트 목록 총 {list.length}건
           </Heading>
           <PostList posts={list} />
-          <Pagination currentPage={page} totalPage={totalPage} type='category' keyword={category} />
+          <Pagination currentPage={page} totalPage={totalPage} type='tag' keyword={tag} />
         </div>
       </AppLayout>
     </>
@@ -40,7 +40,7 @@ export default function CategoryPage({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: getCategoryPage(),
+    paths: getTagPage(),
     fallback: false,
   };
 };
@@ -48,16 +48,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
 type Params = {
   params: {
     page: string;
-    category: string;
+    tag: string;
   }
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
-  const posts = await getPostList(+params.page, 10, 'category', params.category);
+  const posts = await getPostList(+params.page, 10, 'tag', params.tag);
   return {
     props: {
       ...posts,
-      category: params.category,
+      tag: params.tag,
       page: +params.page,
     },
   };

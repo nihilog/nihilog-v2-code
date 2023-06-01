@@ -8,3 +8,6 @@ export * from './parseJson';
 export * from './getCategories';
 export * from './getCategoryPage';
 export * from './getCatagoryPostList';
+export * from './getTags';
+export * from './getTagPage';
+export * from './getTagPostList';
