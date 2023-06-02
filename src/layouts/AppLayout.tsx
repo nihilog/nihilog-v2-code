@@ -29,7 +29,20 @@ export function AppLayout({
   const style = {
     global: css([
       '@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css)',
-      '@import url(https://fonts.cdnfonts.com/css/cascadia-code)',
+      (css`
+        @font-face {
+          font-family: 'CascadiaCode';
+          src: url('/fonts/CascadiaCode.eot');
+          src:
+            url('/fonts/CascadiaCode.eot?#iefix') format('embedded-opentype'),
+            url('/fonts/CascadiaCode.woff2') format('woff2'),
+            url('/fonts/CascadiaCode.svg#CascadiaCode') format('svg'),
+            url('/fonts/CascadiaCode.ttf') format('truetype'),
+            url('/fonts/CascadiaCode.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+        }
+      `),
       tw` [*]:( box-border p-0 m-0 font-sans tracking-[-1px] ) `,
       tw`
         [body]:(

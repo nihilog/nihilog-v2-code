@@ -21,7 +21,7 @@ export function PageLink({
     default: css([
       textStyle.textSize,
       mode === 'nav' && tw`
-        bg-black-700 text-white block py-1 px-3 rounded-1
+        bg-black-700 text-white block py-1 px-3 rounded-1 shrink-0
         hover:( bg-white text-black-base )
       `,
       mode === 'title' && tw`

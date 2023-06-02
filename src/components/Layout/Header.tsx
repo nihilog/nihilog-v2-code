@@ -16,7 +16,6 @@ export function Header({ styles, }: Props) {
     image: css([
       tw` mb-5 `,
       tw`
-        border-b-[3px] border-white pb-5
         [img]:( w-[200px] mx-auto block )
       `,
     ]),

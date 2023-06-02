@@ -3,6 +3,7 @@ import tw, { css } from 'twin.macro';
 import { SerializedStyles } from '@emotion/react';
 import Link from 'next/link';
 import { ICategory, ITag } from '@/types/mdx.types';
+import { textStyle } from '@/styles';
 
 interface Props {
   data: (ICategory | ITag);
@@ -35,11 +36,17 @@ export function ItemBlock({ data, type, styles, }: Props) {
 
   const style = {
     default: css([
+      textStyle.textSize,
+      tw` inline-flex flex-row gap-2 p-2 bg-black-600 rounded-2 hover:( bg-black-base ) `,
       tw`  `,
       styles,
     ]),
-    name: css([]),
-    count: css([]),
+    name: css([
+      tw` text-white `,
+    ]),
+    count: css([
+      tw` inline-block bg-white text-black-base rounded-1 px-1 `,
+    ]),
   };
 
   return (

@@ -10,7 +10,9 @@ interface Props {
 export function Nav({ styles, }: Props) {
   const style = {
     default: css([
-      tw` flex flex-row gap-2 flex-wrap justify-center `,
+      tw` flex flex-row gap-2 flex-nowrap justify-start overflow-x-scroll pb-2 `,
+      tw` [::-webkit-scrollbar]:( bg-black-500 h-1 rounded-2 ) `,
+      tw` [::-webkit-scrollbar-thumb]:( bg-white/30 rounded-2 ) `,
       styles,
     ]),
   };
