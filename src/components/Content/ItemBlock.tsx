@@ -30,6 +30,9 @@ export function ItemBlock({ data, type, styles, }: Props) {
     return type === 'category' ? categoryData?.count : tagData?.count;
   }, [ type, categoryData, tagData, ]);
 
+  const dataCategory = type === 'category' ? 'categories' : 'tags';
+  const dataType = type === 'category' ? 'category' : 'tag';
+
   const style = {
     default: css([
       tw`  `,
@@ -42,8 +45,8 @@ export function ItemBlock({ data, type, styles, }: Props) {
   return (
     <>
       <Link
-        href={`/${type === 'category' ? 'categories' : 'tags'}/[${type === 'category' ? 'category' : 'tag'}]/page/[page]`}
-        as={`/${type === 'category' ? 'categories' : 'tags'}/${dataName}/page/1`}
+        href={`/${dataCategory}/[${dataType}]/page/[page]`}
+        as={`/${dataCategory}/${dataName}/page/1`}
         css={style.default}
       >
         <span css={style.name}>{dataName}</span>
