@@ -6,6 +6,7 @@
     "esModuleInterop": true,
     "jsx": "preserve",
     "jsxImportSource": "@emotion/react",
+    "preserveSymlinks": false,
     "paths": {
       "@/*": [
         "./src/*"

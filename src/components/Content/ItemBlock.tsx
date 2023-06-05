@@ -38,7 +38,6 @@ export function ItemBlock({ data, type, styles, }: Props) {
     default: css([
       textStyle.textSize,
       tw` inline-flex flex-row gap-2 p-2 bg-black-600 rounded-2 hover:( bg-black-base ) `,
-      tw`  `,
       styles,
     ]),
     name: css([
