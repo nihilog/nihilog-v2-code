@@ -7,11 +7,8 @@ export const getTags = () => {
   const tagsArray: string[] = [];
 
   posts.forEach((post) => {
-    console.log('post.frontMatter.tags >> ', post.frontMatter.tags);
     tagsArray.push(...post.frontMatter.tags);
   });
-
-  console.log('tagsArray >> ', tagsArray);
 
   return tagsArray.reduce(
     (acc: ITag[], curr) => {
@@ -20,7 +17,7 @@ export const getTags = () => {
       if (tagInfo) {
         tagInfo.count++;
       } else {
-        acc.push({ tag: curr, count: 1, });
+        acc.push({ tag: curr, icon: 'material-symbols:tag', count: 1, });
       }
 
       return acc;

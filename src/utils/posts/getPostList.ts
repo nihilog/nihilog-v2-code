@@ -1,6 +1,6 @@
 import { parseJson } from './parseJson';
 
-type IPostListType = ('normal' | 'category' | 'tag');
+type IPostListType = ('normal' | 'category' | 'tag' | 'archive');
 export const getPostList = async (
   page: number,
   limit: number,
@@ -16,6 +16,10 @@ export const getPostList = async (
   } else if (type === 'tag') {
     posts = posts.filter(
       (post) => post.frontMatter.tags.includes(keyword)
+    );
+  } else if (type === 'archive') {
+    posts = posts.filter(
+      (post) => post.slug.match(keyword) !== null
     );
   }
 

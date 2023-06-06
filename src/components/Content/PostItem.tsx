@@ -78,7 +78,7 @@ export function PostItem({ post, styles, }: Props) {
             href='/categories/[category]/page/[page]'
             as={`/categories/${post.frontMatter.category}/page/1`}
             mode='button'
-            styles={tw`py-1 px-2`}
+            styles={tw`py-0 px-2`}
             onClick={onClickCategoryLink}
           >
             {post.frontMatter.category}

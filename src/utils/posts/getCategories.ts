@@ -17,7 +17,7 @@ export const getCategories = () => {
       if (categoryInfo) {
         categoryInfo.count++;
       } else {
-        acc.push({ category: curr, count: 1, });
+        acc.push({ category: curr, icon: 'material-symbols:folder', count: 1, });
       }
 
       return acc;

@@ -10,7 +10,7 @@ interface Props {
   currentPage: number;
   totalPage: number;
   styles?: SerializedStyles;
-  type?: ('post' | 'category' | 'tag');
+  type?: ('post' | 'category' | 'tag' | 'archive');
   keyword?: string;
 }
 
@@ -35,44 +35,80 @@ export function Pagination({
     return buttons;
   }, [ currentPage, ]);
 
+  const firstLink = useMemo(() => {
+    switch (type) {
+      case 'post':
+        return `/posts/page/${firstPage}`;
+      case 'category':
+        return `/categories/${keyword}/page/${firstPage}`;
+      case 'tag':
+        return `/tags/${keyword}/page/${firstPage}`;
+      case 'archive':
+        return `/archives/${keyword}/page/${firstPage}`;
+      default:
+        return;
+    }
+  }, [ type, keyword, currentPage, ]);
+
   const prevLink = useMemo(() => {
     switch (type) {
       case 'post':
         return `/posts/page/${+currentPage - 1}`;
       case 'category':
-        return `/category/${keyword}/page/${+currentPage - 1}`;
+        return `/categories/${keyword}/page/${+currentPage - 1}`;
       case 'tag':
-        return `/tag/${keyword}/page/${+currentPage - 1}`;
+        return `/tags/${keyword}/page/${+currentPage - 1}`;
+      case 'archive':
+        return `/archives/${keyword}/page/${+currentPage - 1}`;
       default:
         return;
     }
-  }, []);
+  }, [ type, keyword, currentPage, ]);
 
   const numberLink = useCallback((number: number, keyword = '') => {
     switch (type) {
       case 'post':
         return `/posts/page/${number}`;
       case 'category':
-        return `/category/${keyword}/page/${number}`;
+        return `/categories/${keyword}/page/${number}`;
       case 'tag':
-        return `/tag/${keyword}/page/${number}`;
+        return `/tags/${keyword}/page/${number}`;
+      case 'archive':
+        return `/archives/${keyword}/page/${number}`;
       default:
         return;
     }
-  }, []);
+  }, [ type, keyword, ]);
 
   const nextLink = useMemo(() => {
     switch (type) {
       case 'post':
         return `/posts/page/${+currentPage + 1}`;
       case 'category':
-        return `/category/${keyword}/page/${+currentPage + 1}`;
+        return `/categories/${keyword}/page/${+currentPage + 1}`;
       case 'tag':
-        return `/tag/${keyword}/page/${+currentPage + 1}`;
+        return `/tags/${keyword}/page/${+currentPage + 1}`;
+      case 'archive':
+        return `/archives/${keyword}/page/${+currentPage + 1}`;
       default:
         return;
     }
-  }, []);
+  }, [ type, keyword, currentPage, ]);
+
+  const lastLink = useMemo(() => {
+    switch (type) {
+      case 'post':
+        return `/posts/page/${+lastPage}`;
+      case 'category':
+        return `/categories/${keyword}/page/${+lastPage}`;
+      case 'tag':
+        return `/tags/${keyword}/page/${+lastPage}`;
+      case 'archive':
+        return `/archives/${keyword}/page/${+lastPage}`;
+      default:
+        return;
+    }
+  }, [ type, keyword, currentPage, ]);
 
   const style = {
     default: css([
@@ -106,7 +142,7 @@ export function Pagination({
           </>
         ) : (
           <>
-            <Link href='/posts/page/1' aria-label='first' css={style.link}>
+            <Link href={firstLink} aria-label='first' css={style.link}>
               <Icon icon='material-symbols:keyboard-double-arrow-left' />
             </Link>
             <Link href={prevLink} aria-label='prev' css={style.link}>
@@ -133,7 +169,7 @@ export function Pagination({
             <Link href={nextLink} aria-label='next' css={style.link}>
               <Icon icon='material-symbols:chevron-right' />
             </Link>
-            <Link href={`/posts/page/${+lastPage}`} aria-label='last' css={style.link}>
+            <Link href={lastLink} aria-label='last' css={style.link}>
               <Icon icon='material-symbols:keyboard-double-arrow-right' />
             </Link>
           </>

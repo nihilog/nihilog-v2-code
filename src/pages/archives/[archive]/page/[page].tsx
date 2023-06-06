@@ -1,20 +1,22 @@
 import React from 'react';
 import tw, { css } from 'twin.macro';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { AppLayout } from '@/layouts';
-import { parseJson } from '@/utils/posts/parseJson';
-import { getPostList } from '@/utils/posts';
-import { Pagination, PostList } from '@/components/Content';
 import { IMDXList } from '@/types/mdx.types';
+import { AppLayout } from '@/layouts';
+import { Heading } from '@/components/Base';
+import { Pagination, PostList } from '@/components/Content';
+import { getArchivePage, getPostList } from '@/utils/posts';
 
-interface IPostListPage {
+interface Props {
   totalPage: number;
   page: number;
   list: IMDXList[];
+  archive: string;
 }
 
-export default function PostListPage({ totalPage, page, list, }: IPostListPage) {
-  // TODO: 포스트 리스트 페이지 만들어둬야함.
+export default function ArchivePage({
+  totalPage, page, list, archive,
+}: Props) {
   const style = {
     default: css([
       tw`  `,
@@ -23,10 +25,13 @@ export default function PostListPage({ totalPage, page, list, }: IPostListPage) 
 
   return (
     <>
-      <AppLayout title='포스트 목록'>
+      <AppLayout title={`'${archive}' 포스트 목록`}>
         <div css={style.default}>
+          <Heading type='h2' mode='sub-title'>
+            {`'${archive}'`} 포스트 목록 총 {list.length}건
+          </Heading>
           <PostList posts={list} />
-          <Pagination currentPage={page} totalPage={totalPage} />
+          <Pagination currentPage={page} totalPage={totalPage} type='archive' keyword={archive} />
         </div>
       </AppLayout>
     </>
@@ -34,15 +39,8 @@ export default function PostListPage({ totalPage, page, list, }: IPostListPage) 
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = parseJson();
-  const totalPage = Math.ceil(posts.length / 1);
-
   return {
-    paths: [ ...Array(totalPage).keys(), ].map((item) => ({
-      params: {
-        page: (item + 1).toString(),
-      },
-    })),
+    paths: getArchivePage(),
     fallback: false,
   };
 };
@@ -50,15 +48,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
 type Params = {
   params: {
     page: string;
+    archive: string;
   }
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
-  const pagePosts = await getPostList(+params.page, 1);
-
+  const posts = await getPostList(+params.page, 10, 'archive', params.archive);
   return {
     props: {
-      ...pagePosts,
+      ...posts,
+      archive: params.archive,
       page: +params.page,
     },
   };

@@ -25,10 +25,18 @@ export interface IMDX {
 
 export interface ICategory {
   category: string;
+  icon: string;
   count: number;
 }
 
 export interface ITag {
   tag: string;
+  icon: string;
+  count: number;
+}
+
+export interface IArchive {
+  archive: string;
+  icon: string;
   count: number;
 }

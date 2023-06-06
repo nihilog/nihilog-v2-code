@@ -11,3 +11,6 @@ export * from './getCatagoryPostList';
 export * from './getTags';
 export * from './getTagPage';
 export * from './getTagPostList';
+export * from './getArchive';
+export * from './getArchivePage';
+export * from './getArchivePostList';
