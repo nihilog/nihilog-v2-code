@@ -5,6 +5,7 @@ import { AppLayout } from '@/layouts';
 import { getSinglePost, getYear, parseJson } from '@/utils/posts';
 import { IMDX } from '@/types/mdx.types';
 import { PostMD } from '@/components/Content/MDX';
+import { PostInfo } from '@/components/Content';
 
 interface Props {
   post: IMDX;
@@ -22,6 +23,7 @@ export default function PostPage({ post, }: Props) {
     <>
       <AppLayout title={post.frontMatter.title}>
         <div css={style.default}>
+          <PostInfo post={post} />
           <PostMD content={post.content} />
         </div>
       </AppLayout>

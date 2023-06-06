@@ -14,19 +14,14 @@ export function Header({ styles, }: Props) {
       styles,
     ]),
     image: css([
-      tw` mb-5 `,
-      tw`
-        [img]:( w-[200px] mx-auto block )
-      `,
+      tw` w-[200px] mx-auto block mb-5 `,
     ]),
   };
 
   return (
     <>
       <header css={style.default}>
-        <h1 css={style.image}>
-          <img src='/images/nihilog-front-logo.svg' alt='니힐로그 로고' />
-        </h1>
+        <img src='/images/nihilog-front-logo.svg' alt='니힐로그 로고' css={style.image} />
         <Nav />
       </header>
     </>
