@@ -3,6 +3,7 @@ import tw, { css, TwStyle } from 'twin.macro';
 import { SerializedStyles } from '@emotion/react';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { CustomMDX } from './CustomMDX';
+import { Box } from '@/components/Base';
 
 interface Props {
   content: MDXRemoteSerializeResult;
@@ -19,9 +20,9 @@ export function PostMD({ content, styles, }: Props) {
 
   return (
     <>
-      <div css={style.default}>
+      <Box styles={style.default}>
         <MDXRemote {...content} components={CustomMDX} />
-      </div>
+      </Box>
     </>
   );
 }

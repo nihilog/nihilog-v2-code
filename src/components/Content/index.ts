@@ -7,3 +7,4 @@ export * from './PaginationLink';
 export * from './ItemBlock';
 export * from './ItemList';
 export * from './PostInfo';
+export * from './PostInfoBlock';

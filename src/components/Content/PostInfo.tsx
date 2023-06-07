@@ -3,9 +3,11 @@ import tw, { css } from 'twin.macro';
 import { SerializedStyles } from '@emotion/react';
 import Link from 'next/link';
 import { v4 as uuid } from 'uuid';
+import { Icon } from '@iconify/react';
 import { IMDX } from '@/types/mdx.types';
-import { Heading } from '../Base';
+import { Box, Heading } from '../Base';
 import { setDate } from '@/utils/date';
+import { PostInfoBlock } from './PostInfoBlock';
 
 interface Props {
   post: IMDX;
@@ -15,45 +17,47 @@ interface Props {
 export function PostInfo({ post, styles, }: Props) {
   const style = {
     default: css([
-      tw`  `,
+      tw` mb-10 `,
       styles,
+    ]),
+    item: css([
+      tw` py-1 px-2 bg-black-400 rounded-1 inline-flex flex-row text-white items-center gap-1 `,
+      tw` hover:( bg-black-600 shadow-sm shadow-black-base ) `,
     ]),
   };
 
   return (
     <>
-      <div css={style.default}>
+      <Box styles={style.default}>
         <Heading type='h1' mode='post-title'>{post.frontMatter.title}</Heading>
-        <div>
-          <span>카테고리</span>
+        <PostInfoBlock name='카테고리'>
           <Link
             href='/categories/[category]/page/[page]'
             as={`/categories/${post.frontMatter.category}/page/1`}
+            css={style.item}
           >
-            {post.frontMatter.category}
+            <Icon icon='material-symbols:folder' /> {post.frontMatter.category}
           </Link>
-        </div>
-        <div>
-          <span>태그</span>
+        </PostInfoBlock>
+        <PostInfoBlock name='태그'>
           {post.frontMatter.tags.map((tag) => (
             <Link
               key={uuid()}
               href='/tags/[tag]/page/[page]'
               as={`/tags/${tag}/page/1`}
+              css={style.item}
             >
-              {tag}
+              <Icon icon='material-symbols:tag' /> {tag}
             </Link>
           ))}
-        </div>
-        <div>
-          <span>작성일자</span>
+        </PostInfoBlock>
+        <PostInfoBlock name='작성일자'>
           <span>{setDate(post.frontMatter.created as number)}</span>
-        </div>
-        <div>
-          <span>수정일자</span>
+        </PostInfoBlock>
+        <PostInfoBlock name='수정일자'>
           <span>{setDate(post.frontMatter.updated as number)}</span>
-        </div>
-      </div>
+        </PostInfoBlock>
+      </Box>
     </>
   );
 }
