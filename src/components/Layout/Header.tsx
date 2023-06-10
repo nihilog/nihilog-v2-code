@@ -10,7 +10,7 @@ interface Props {
 export function Header({ styles, }: Props) {
   const style = {
     default: css([
-      tw` bg-black-base rounded-2 p-4 `,
+      tw` bg-black-base rounded-2 p-4 max-w-[900px] mx-auto `,
       styles,
     ]),
     image: css([

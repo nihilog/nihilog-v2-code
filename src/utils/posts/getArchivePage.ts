@@ -31,7 +31,5 @@ export const getArchivePage = () => {
     archivePageArray.push(...pageArray);
   });
 
-  console.log(archivePageArray);
-
   return archivePageArray;
 };

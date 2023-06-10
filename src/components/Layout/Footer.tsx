@@ -18,7 +18,7 @@ export function Footer({ styles, }: Props) {
 
   const style = {
     default: css([
-      tw` bg-black-base rounded-2 p-4 text-white `,
+      tw` bg-black-base rounded-2 p-4 text-white max-w-[900px] mx-auto `,
       styles,
     ]),
     small: css([

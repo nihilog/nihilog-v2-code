@@ -14,7 +14,6 @@ interface IPostListPage {
 }
 
 export default function PostListPage({ totalPage, page, list, }: IPostListPage) {
-  // TODO: 포스트 리스트 페이지 만들어둬야함.
   const style = {
     default: css([
       tw`  `,
@@ -35,7 +34,7 @@ export default function PostListPage({ totalPage, page, list, }: IPostListPage) 
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = parseJson();
-  const totalPage = Math.ceil(posts.length / 1);
+  const totalPage = Math.ceil(posts.length / 10);
 
   return {
     paths: [ ...Array(totalPage).keys(), ].map((item) => ({
@@ -54,7 +53,7 @@ type Params = {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
-  const pagePosts = await getPostList(+params.page, 1);
+  const pagePosts = await getPostList(+params.page, 10);
 
   return {
     props: {

@@ -27,7 +27,6 @@ export default function InfoPage({ styles, }: Props) {
           </Box>
           <Heading mode='sub-title'>보유 기술</Heading>
           <Box>
-            {/* TODO: 보유 기술을 어느정도인지 남겨두기 */}
             <Text styles={tw` mb-5! `}>아래는 다룰 수 있는 기술들에 대한 표입니다. 각 분야별로 정리해두었습니다. 웹 관련 기술이 아니더라도 습득하면 여기에 추가할 생각입니다.</Text>
             <ChartGrid title='웹 개발 기초'>
               <DonutChart name='HTML' number={0.8} color='#e34c26' />

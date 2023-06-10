@@ -34,7 +34,7 @@ export function SearchBar({ styles, }: Props) {
 
   const style = {
     default: css([
-      tw` mt-3 `,
+      tw` mt-3 max-w-[900px] mx-auto `,
       styles,
     ]),
     form: css([
