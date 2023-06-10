@@ -5,7 +5,7 @@ import { SerializedStyles } from '@emotion/react';
 interface Props {
   children: React.ReactNode;
   type?: ('h1' | 'h2' | 'h3' | 'h4' | 'h5');
-  mode?: ('normal' | 'sub-title' | 'title' | 'post-title');
+  mode?: ('normal' | 'sub-title' | 'title' | 'post-title' | 'message');
   styles?: SerializedStyles | TwStyle;
 }
 
@@ -29,6 +29,9 @@ export function Heading({
       `,
       mode === 'post-title' && tw`
         flex flex-row text-justify break-all text-black-base mb-5
+      `,
+      mode === 'message' && tw`
+        flex flex-row items-center justify-center
       `,
       styles,
     ]),

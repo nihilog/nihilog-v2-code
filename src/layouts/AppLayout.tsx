@@ -3,7 +3,7 @@ import { Global } from '@emotion/react';
 import { useRouter } from 'next/router';
 import tw, { css } from 'twin.macro';
 import {
-  Footer, Header, Main, Meta
+  Footer, Header, Main, Meta, SearchBar
 } from '@/components/Layout';
 import { IAppLayoutProps, IMetaData } from '@/types/site.types';
 
@@ -61,6 +61,7 @@ export function AppLayout({
       <Meta meta={meta} />
 
       <Header />
+      <SearchBar />
       <Main>{children}</Main>
       <Footer />
     </>
