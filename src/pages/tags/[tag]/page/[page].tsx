@@ -1,11 +1,11 @@
 import React from 'react';
 import tw, { css } from 'twin.macro';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { IMDXList } from '@/types/mdx.types';
+import { IMDXList, ITagPage } from '@/types/mdx.types';
 import { AppLayout } from '@/layouts';
 import { Heading } from '@/components/Base';
 import { Pagination, PostList } from '@/components/Content';
-import { getPostList, getTagPage } from '@/utils/posts';
+import { getItemDataPage, getPostList } from '@/utils/posts';
 
 interface Props {
   totalPage: number;
@@ -40,7 +40,7 @@ export default function TagPage({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: getTagPage(),
+    paths: getItemDataPage('tag') as ITagPage[],
     fallback: false,
   };
 };

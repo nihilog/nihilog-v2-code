@@ -1,8 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
 import tw, { css } from 'twin.macro';
-import { getCategoryPage, getPostList } from '@/utils/posts';
-import { IMDXList } from '@/types/mdx.types';
+import { getItemDataPage, getPostList } from '@/utils/posts';
+import { ICategoryPage, IMDXList } from '@/types/mdx.types';
 import { AppLayout } from '@/layouts';
 import { Heading } from '@/components/Base';
 import { Pagination, PostList } from '@/components/Content';
@@ -40,7 +40,7 @@ export default function CategoryPage({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: getCategoryPage(),
+    paths: getItemDataPage('category') as ICategoryPage[],
     fallback: false,
   };
 };

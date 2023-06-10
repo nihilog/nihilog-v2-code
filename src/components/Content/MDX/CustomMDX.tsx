@@ -2,7 +2,8 @@ import React from 'react';
 import { MDXComponents } from 'mdx/types';
 import { Heading } from '@/components/Base';
 
-/** 여기에 필요한 항목들을 넣는다. */
+// TODO: 이제 포스트 관련 컴포넌트를 만들고 디자인하는 일만 남음.
+// TODO: MDX 폴더 안에 포스트 관련 컴포넌트를 만들도록 함.
 export const CustomMDX: MDXComponents = {
   h1: (props) => <Heading type='h2'>{props.children}</Heading>,
   h2: (props) => <Heading type='h3'>{props.children}</Heading>,

@@ -4,11 +4,11 @@ import { GetStaticProps } from 'next';
 import { Heading } from '@/components/Base';
 import { ItemList } from '@/components/Content';
 import { AppLayout } from '@/layouts';
-import { getTags } from '@/utils/posts';
-import { ITag } from '@/types/mdx.types';
+import { getItemData } from '@/utils/posts';
+import { IItemData } from '@/types/mdx.types';
 
 interface Props {
-  tags: ITag[];
+  tags: IItemData[];
 }
 
 export default function TagIndexPage({ tags, }: Props) {
@@ -31,7 +31,7 @@ export default function TagIndexPage({ tags, }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const tags = getTags();
+  const tags = getItemData('tag');
 
   return {
     props: {

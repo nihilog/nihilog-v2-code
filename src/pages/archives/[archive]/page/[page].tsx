@@ -1,11 +1,11 @@
 import React from 'react';
 import tw, { css } from 'twin.macro';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { IMDXList } from '@/types/mdx.types';
+import { IArchivePage, IMDXList } from '@/types/mdx.types';
 import { AppLayout } from '@/layouts';
 import { Heading } from '@/components/Base';
 import { Pagination, PostList } from '@/components/Content';
-import { getArchivePage, getPostList } from '@/utils/posts';
+import { getItemDataPage, getPostList } from '@/utils/posts';
 
 interface Props {
   totalPage: number;
@@ -40,7 +40,7 @@ export default function ArchivePage({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: getArchivePage(),
+    paths: getItemDataPage('archive') as IArchivePage[],
     fallback: false,
   };
 };

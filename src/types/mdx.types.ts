@@ -23,20 +23,29 @@ export interface IMDX {
   content: MDXRemoteSerializeResult;
 }
 
-export interface ICategory {
-  category: string;
+export interface IItemData {
+  data: string;
   icon: string;
   count: number;
 }
 
-export interface ITag {
-  tag: string;
-  icon: string;
-  count: number;
+export interface ICategoryPage {
+  params: {
+    category: string;
+    page: string;
+  }
 }
 
-export interface IArchive {
-  archive: string;
-  icon: string;
-  count: number;
+export interface IArchivePage {
+  params: {
+    archive: string;
+    page: string;
+  }
+}
+
+export interface ITagPage {
+  params: {
+    tag: string;
+    page: string;
+  }
 }

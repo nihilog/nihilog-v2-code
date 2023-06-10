@@ -2,13 +2,13 @@ import React from 'react';
 import tw, { css } from 'twin.macro';
 import { GetStaticProps } from 'next';
 import { AppLayout } from '@/layouts';
-import { getCategories } from '@/utils/posts';
-import { ICategory } from '@/types/mdx.types';
+import { getItemData } from '@/utils/posts';
+import { IItemData } from '@/types/mdx.types';
 import { Heading } from '@/components/Base';
 import { ItemList } from '@/components/Content';
 
 interface Props {
-  categories: ICategory[];
+  categories: IItemData[];
 }
 
 export default function CategoryIndexPage({ categories, }: Props) {
@@ -31,7 +31,7 @@ export default function CategoryIndexPage({ categories, }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const categories = getCategories();
+  const categories = getItemData('category');
 
   return {
     props: {
