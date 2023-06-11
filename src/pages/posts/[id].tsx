@@ -23,7 +23,11 @@ export default function PostPage({ post, }: Props) {
       <AppLayout title={post.frontMatter.title}>
         <div css={style.default}>
           <PostInfo post={post} />
-          <PostMD content={post.content} />
+          <PostMD
+            content={post.content}
+            cover={post.frontMatter.cover}
+            title={post.frontMatter.title}
+          />
         </div>
       </AppLayout>
     </>

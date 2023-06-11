@@ -21,8 +21,8 @@ export function PostInfo({ post, styles, }: Props) {
       styles,
     ]),
     item: css([
-      tw` py-1 px-2 bg-black-400 rounded-1 inline-flex flex-row text-white items-center gap-1 `,
-      tw` hover:( bg-black-600 shadow-sm shadow-black-base ) `,
+      tw` flex flex-row items-center shrink-0 p-1 bg-blue-100 border border-blue-500/20 rounded-1 text-blue-600 `,
+      tw` hover:( bg-blue-500 text-white ) `,
     ]),
   };
 

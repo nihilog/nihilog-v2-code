@@ -69,6 +69,7 @@ export function PostItem({ post, styles, }: Props) {
         className={classString}
         css={style.info}
       >
+        {/* TODO: 제목을 깔끔하게 줄이는 방법을 찾아보자. */}
         <Heading type='h3' styles={tw`text-white mb-5`}>{post.frontMatter.title}</Heading>
         <p css={tw`text-white flex-[1]`}>{setDate(post.frontMatter.created)}</p>
         <div css={tw`text-white flex items-center justify-start gap-1`}>

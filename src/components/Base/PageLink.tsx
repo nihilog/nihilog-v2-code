@@ -28,7 +28,7 @@ export function PageLink({
         bg-black-100
       `,
       mode === 'button' && tw`
-        block p-3 text-mb-normal mb-sm:text-mb-sm mb-md:text-mb-md text-center text-black-base rounded-2 bg-blue-100 border border-blue-500/20
+        block p-3 text-center text-black-base rounded-2 bg-blue-100 border border-blue-500/20
         hover:( bg-blue-500 text-white )
       `,
       mode === 'pagination' && tw`
