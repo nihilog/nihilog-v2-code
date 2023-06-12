@@ -35,6 +35,9 @@ export function PageLink({
         block p-2 bg-blue-100 border border-blue-500/20 rounded-2
         hover:( bg-blue-500 text-white )
       `,
+      mode === 'page' && tw`
+
+      `,
       styles,
     ]),
   };

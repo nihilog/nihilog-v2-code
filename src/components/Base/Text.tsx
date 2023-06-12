@@ -11,7 +11,7 @@ interface Props {
 export function Text({ children, styles, }: Props) {
   const style = {
     default: css([
-      tw` my-8 nth-1:mt-0 nth-last-1:mb-0 text-black-base leading-[1.5] `,
+      tw` my-5 nth-1:mt-0 nth-last-1:mb-0 text-black-base leading-[1.5] `,
       textStyle.textSize,
       styles,
     ]),

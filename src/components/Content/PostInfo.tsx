@@ -21,7 +21,7 @@ export function PostInfo({ post, styles, }: Props) {
       styles,
     ]),
     item: css([
-      tw` flex flex-row items-center shrink-0 p-1 bg-blue-100 border border-blue-500/20 rounded-1 text-blue-600 `,
+      tw` flex flex-row items-center shrink-0 p-1 px-2 gap-[3px] bg-blue-100 border border-blue-500/20 rounded-1 text-blue-600 text-[90%] `,
       tw` hover:( bg-blue-500 text-white ) `,
     ]),
   };

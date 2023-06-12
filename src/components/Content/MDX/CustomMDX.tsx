@@ -1,7 +1,10 @@
 import React from 'react';
 import { MDXComponents } from 'mdx/types';
-import { Heading } from '@/components/Base';
-import { Bold } from './Bold';
+import { Heading, Text } from '@/components/Base';
+import {
+  A,
+  Bold, ColorBox, Em, Quote, Strike
+} from '../post';
 
 // TODO: 이제 포스트 관련 컴포넌트를 만들고 디자인하는 일만 남음.
 // TODO: MDX 폴더 안에 포스트 관련 컴포넌트를 만들도록 함.
@@ -21,4 +24,23 @@ export const CustomMDX: MDXComponents = {
   strong: (props) => (
     <Bold>{props.children}</Bold>
   ),
+  em: (props) => (
+    <Em>{props.children}</Em>
+  ),
+  del: (props) => (
+    <Strike>{props.children}</Strike>
+  ),
+  p: (props) => (
+    <Text>{props.children}</Text>
+  ),
+  a: (props) => (
+    <A link={props.href}>{props.children}</A>
+  ),
+  Bold,
+  Em,
+  Strike,
+  Quote,
+  Text,
+  A,
+  ColorBox,
 };
