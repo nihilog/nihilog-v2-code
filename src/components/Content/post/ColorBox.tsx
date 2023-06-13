@@ -34,22 +34,26 @@ export function ColorBox({ children, color, styles, }: Props) {
 
   const style = {
     default: css([
-      tw` border rounded-1 shadow-none mb-5 nth-last-1:mb-0 `,
+      tw` border rounded-1 shadow-none mb-5 `,
       color === 'blue' && tw`
         bg-blue-100 border-blue-400/50
         [p,svg]:( text-blue-600! )
+        [p]:nth-last-1:( mb-0 )
       `,
       color === 'red' && tw`
         bg-red-100 border-red-400/30
         [p,svg]:( text-red-600! )
+        [p]:nth-last-1:( mb-0 )
       `,
       color === 'green' && tw`
         bg-green-100 border-green-400/60
         [p,svg]:( text-green-700! )
+        [p]:nth-last-1:( mb-0 )
       `,
       color === 'yellow' && tw`
         bg-yellow-100 border-yellow-400/60
         [p,svg]:( text-yellow-700! )
+        [p]:nth-last-1:( mb-0 )
       `,
       styles,
     ]),

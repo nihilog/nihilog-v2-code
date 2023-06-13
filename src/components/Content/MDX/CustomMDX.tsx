@@ -3,7 +3,7 @@ import { MDXComponents } from 'mdx/types';
 import { Heading, Text } from '@/components/Base';
 import {
   A,
-  Bold, ColorBox, Em, Quote, Strike
+  Bold, Code, ColorBox, Em, Quote, Strike
 } from '../post';
 
 // TODO: 이제 포스트 관련 컴포넌트를 만들고 디자인하는 일만 남음.
@@ -36,6 +36,15 @@ export const CustomMDX: MDXComponents = {
   a: (props) => (
     <A link={props.href}>{props.children}</A>
   ),
+  code: (props) => (
+    <Code>{props.children}</Code>
+  ),
+  // pre: (props) => {
+  //   console.log(props);
+  //   return (
+  //     <></>
+  //   );
+  // },
   Bold,
   Em,
   Strike,
@@ -43,4 +52,5 @@ export const CustomMDX: MDXComponents = {
   Text,
   A,
   ColorBox,
+  Code,
 };

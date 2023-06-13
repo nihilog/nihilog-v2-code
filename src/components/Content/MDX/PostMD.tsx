@@ -4,6 +4,7 @@ import { SerializedStyles } from '@emotion/react';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { CustomMDX } from './CustomMDX';
 import { Box } from '@/components/Base';
+import { CreativeCommons } from '../CreativeCommons';
 
 interface Props {
   content: MDXRemoteSerializeResult;
@@ -43,6 +44,7 @@ export function PostMD({
       <Box styles={style.default}>
         <img src={imageCover} alt={imageAlt} css={style.img} />
         <MDXRemote {...content} components={CustomMDX} />
+        <CreativeCommons />
       </Box>
     </>
   );

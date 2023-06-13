@@ -2,6 +2,7 @@ import React from 'react';
 import tw, { css } from 'twin.macro';
 import { SerializedStyles } from '@emotion/react';
 import { Icon } from '@iconify/react';
+import { textStyle } from '@/styles';
 
 interface Props {
   children: React.ReactNode;
@@ -15,11 +16,13 @@ export function Quote({
 }: Props) {
   const style = {
     default: css([
-      tw` p-3 border border-black-base/30 rounded-2 mb-5 `,
+      textStyle.textSize,
+      tw` p-3 border border-black-base/30 rounded-2 text-black-base `,
+      tw` mb-5 `,
       styles,
     ]),
     content: css([
-      tw` flex flex-row gap-1 items-center `,
+      tw` flex flex-row gap-1 items-center justify-center italic `,
     ]),
     who: css([
       tw` flex flex-row gap-[2px] items-center justify-end `,
@@ -30,10 +33,11 @@ export function Quote({
   return (
     <>
       <blockquote css={style.default} cite={cite}>
+        <Icon icon='bxs:quote-left' fontSize={40} />
         <p css={style.content}>
-          <Icon icon='bi:chat-square-quote' />
           {children}
         </p>
+        <Icon icon='bxs:quote-right' fontSize={40} css={tw` ml-auto mb-5 `} />
         <p css={style.who}>
           {cite ? (
             <a href={cite} target='_blank' rel='noopener noreferrer'>
