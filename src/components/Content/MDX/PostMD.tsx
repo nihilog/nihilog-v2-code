@@ -37,6 +37,9 @@ export function PostMD({
     img: css([
       tw` rounded-2 mb-5 `,
     ]),
+    hr: css([
+      tw` border-[0] border-b-[5px] border-black-base/70 border-dotted h-[5px] my-10 `,
+    ]),
   };
 
   return (
@@ -44,6 +47,7 @@ export function PostMD({
       <Box styles={style.default}>
         <img src={imageCover} alt={imageAlt} css={style.img} />
         <MDXRemote {...content} components={CustomMDX} />
+        <hr css={style.hr} />
         <CreativeCommons />
       </Box>
     </>

@@ -5,3 +5,5 @@ export * from './Quote';
 export * from './A';
 export * from './ColorBox';
 export * from './Code';
+export * from './Pre';
+export * from './PreTitle';

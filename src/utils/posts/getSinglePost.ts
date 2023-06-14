@@ -3,7 +3,6 @@ import { serialize } from 'next-mdx-remote/serialize';
 import remarkGfm from 'remark-gfm';
 import remarkUnwrapImages from 'remark-unwrap-images';
 import rehypePrism from 'rehype-prism-plus';
-import rehypeCodeTitles from 'rehype-code-titles';
 import { getPostFile } from './getPostFile';
 import { IFrontMatter, IMDX } from '@/types/mdx.types';
 
@@ -27,7 +26,6 @@ export const getSinglePost = async (year: string, slug: string): Promise<IMDX> =
       ],
       rehypePlugins: [
         rehypePrism,
-        rehypeCodeTitles,
       ],
       format: 'mdx',
     },

@@ -17,7 +17,7 @@ export function CreativeCommons({ styles, }: Props) {
       tw` inline-flex flex-row p-1 rounded-1 border border-black-base/30 `,
     ]),
     user: css([
-      tw` p-1 px-2 rounded-1 border bg-blue-100 border-blue-400/50 text-blue-600 `,
+      tw` p-1 px-2 rounded-1 border bg-blue-100 border-blue-500/20 text-blue-600 `,
       tw` hover:( bg-blue-600 text-white ) `,
     ]),
   };

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import tw, { css } from 'twin.macro';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
 import { AppLayout } from '@/layouts';
 import { getSinglePost, getYear, parseJson } from '@/utils/posts';
 import { IMDX } from '@/types/mdx.types';
@@ -12,16 +13,23 @@ interface Props {
 }
 
 export default function PostPage({ post, }: Props) {
+  const router = useRouter();
+
+  const onClickButton = useCallback(() => {
+    router.back();
+  }, [ router, ]);
+
   const style = {
-    default: css([
-      tw`  `,
+    button: css([
+      tw` block ml-auto mb-5 border border-blue-500/20 bg-blue-100 text-blue-600 p-1 px-2 rounded-2 hover:( text-white bg-blue-600 ) `,
     ]),
   };
 
   return (
     <>
       <AppLayout title={post.frontMatter.title}>
-        <div css={style.default}>
+        <div>
+          <button onClick={onClickButton} css={style.button}>목록으로</button>
           <PostInfo post={post} />
           <PostMD
             content={post.content}
