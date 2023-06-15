@@ -6,6 +6,7 @@ import { ICategoryPage, IMDXList } from '@/types/mdx.types';
 import { AppLayout } from '@/layouts';
 import { Heading } from '@/components/Base';
 import { Pagination, PostList } from '@/components/Content';
+import { siteData } from '@/data';
 
 interface Props {
   totalPage: number;
@@ -53,7 +54,12 @@ type Params = {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
-  const posts = await getPostList(+params.page, 10, 'category', params.category);
+  const posts = await getPostList(
+    +params.page,
+    siteData.postPerPage,
+    'category',
+    params.category
+  );
   return {
     props: {
       ...posts,

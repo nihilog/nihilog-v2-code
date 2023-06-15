@@ -22,7 +22,9 @@ export function Quote({
       styles,
     ]),
     content: css([
-      tw` flex flex-row gap-1 items-center justify-center italic `,
+      tw` italic text-justify break-all [span]:( ml-[2px] mr-[7px] ) `,
+      tw` before:( content-[url('https://api.iconify.design/bxs/quote-left.svg?color=%23333')] ) `,
+      tw` after:( content-[url('https://api.iconify.design/bxs/quote-right.svg?color=%23333')] ) `,
     ]),
     who: css([
       tw` flex flex-row gap-[2px] items-center justify-end `,
@@ -33,11 +35,9 @@ export function Quote({
   return (
     <>
       <blockquote css={style.default} cite={cite}>
-        <Icon icon='bxs:quote-left' fontSize={40} />
         <p css={style.content}>
-          {children}
+          <span>{children}</span>
         </p>
-        <Icon icon='bxs:quote-right' fontSize={40} css={tw` ml-auto mb-5 `} />
         <p css={style.who}>
           {cite ? (
             <a href={cite} target='_blank' rel='noopener noreferrer'>

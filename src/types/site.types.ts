@@ -6,6 +6,7 @@ export interface ISiteData {
   image: string;
   keywords: string;
   author: string;
+  postPerPage: number;
   version: string;
 }
 

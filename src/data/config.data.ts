@@ -10,5 +10,6 @@ export const siteData: ISiteData = {
     ? 'http://localhost:3000'
     : '',
   image: '',
+  postPerPage: 10,
   version: 'v0.0.0',
 };

@@ -6,6 +6,7 @@ import { AppLayout } from '@/layouts';
 import { Heading } from '@/components/Base';
 import { Pagination, PostList } from '@/components/Content';
 import { getItemDataPage, getPostList } from '@/utils/posts';
+import { siteData } from '@/data';
 
 interface Props {
   totalPage: number;
@@ -53,7 +54,12 @@ type Params = {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
-  const posts = await getPostList(+params.page, 10, 'tag', params.tag);
+  const posts = await getPostList(
+    +params.page,
+    siteData.postPerPage,
+    'tag',
+    params.tag
+  );
   return {
     props: {
       ...posts,

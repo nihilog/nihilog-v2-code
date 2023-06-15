@@ -161,7 +161,8 @@ pre[class*="language-"] {
 }
 
 .highlight-line {
-  background: rgba(224, 145, 66, 0.2);
-  background: -webkit-linear-gradient(left, rgba(224, 145, 66, 0.2) 70%, rgba(224, 145, 66, 0));
-  background: linear-gradient(to right, rgba(224, 145, 66, 0.2) 70%, rgba(224, 145, 66, 0));
+  background: #a8998450;
+  background: -webkit-linear-gradient(left, #a8998450 50%, rgba(224, 145, 66, 0));
+  background: linear-gradient(to right, #a8998450 50%, rgba(224, 145, 66, 0));
+  display: block;
 }
