@@ -4,6 +4,7 @@ import { AppProps } from 'next/app';
 
 import '@/styles/tailwind.css';
 import 'react-toastify/dist/ReactToastify.css';
+import '@/styles/theme.css';
 
 import { ToastContainer } from 'react-toastify';
 

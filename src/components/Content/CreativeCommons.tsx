@@ -10,7 +10,7 @@ interface Props {
 export function CreativeCommons({ styles, }: Props) {
   const style = {
     default: css([
-      tw` flex flex-row items-center justify-between `,
+      tw` flex flex-row items-center justify-between text-black-base `,
       styles,
     ]),
     ccl: css([

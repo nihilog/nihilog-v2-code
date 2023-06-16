@@ -23,7 +23,8 @@ export function Ul({ children, className, styles, }: Props) {
 
   const style = {
     default: css([
-      tw` mb-5 `,
+      ulRef.current?.parentNode.nodeName !== 'LI' && tw` mb-5 `,
+      ulRef.current?.parentNode.nodeName === 'LI' && tw` mb-0 `,
       css(css`
         margin-left: ${indent}px;
       `),
