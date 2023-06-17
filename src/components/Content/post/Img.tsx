@@ -38,7 +38,7 @@ export function Img({ src, alt, styles, }: Props) {
   const style = {
     default: css([
       textStyle.textSize,
-      tw` mb-5 p-5 border border-black-base/30 rounded-1 text-center bg-black-100 text-black-base `,
+      tw` mb-5 p-5 border border-black-base/20 rounded-1 text-center bg-black-100/50 text-black-base `,
       styles,
     ]),
     img: css([
@@ -49,7 +49,7 @@ export function Img({ src, alt, styles, }: Props) {
       tw` before:( content-[url('https://api.iconify.design/material-symbols/image-outline.svg?color=%23333')] ) `,
     ]),
     zoomImage: css([
-      tw` w-[100vw] h-[100vh] z-10 bg-black-base/80 fixed top-0 left-0 flex flex-col shrink-0 `,
+      tw` w-[100vw] h-[100vh] z-10 bg-black-base/90 fixed top-0 left-0 flex flex-col shrink-0 `,
       tw` [.modal-top]:(
         w-full h-[50px]
         [.close-button]:( ml-auto text-white cursor-pointer )
@@ -61,8 +61,8 @@ export function Img({ src, alt, styles, }: Props) {
       tw` [.modal-bottom]:(
         w-full h-[50px] flex flex-row items-center justify-center
         [a]:(
-          p-1 px-2 bg-blue-200 text-blue-600 rounded-1 border border-blue-500/20
-          hover:( bg-blue-600 text-white )
+          p-1 px-2 bg-blue-200 text-blue-600 rounded-1 border border-blue-500/40 text-[90%]
+          [&:hover]:( bg-blue-600 text-white )
         )
       ) `,
     ]),
@@ -71,7 +71,12 @@ export function Img({ src, alt, styles, }: Props) {
   return (
     <>
       <figure css={style.default}>
-        <img src={src} alt={alt} css={style.img} onClick={onClickImage} />
+        <img
+          src={src}
+          alt={alt}
+          css={style.img}
+          onClick={onClickImage}
+        />
         <figcaption css={style.caption}>{alt}</figcaption>
       </figure>
       {isClick && (

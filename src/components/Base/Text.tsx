@@ -11,7 +11,7 @@ interface Props {
 export function Text({ children, styles, }: Props) {
   const style = {
     default: css([
-      tw` mb-5 text-black-base leading-[1.5] `,
+      tw` mb-5 text-black-base leading-[1.5] text-justify break-all `,
       textStyle.textSize,
       styles,
     ]),

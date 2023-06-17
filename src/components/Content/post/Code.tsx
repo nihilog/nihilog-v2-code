@@ -19,7 +19,7 @@ export function Code({ children, styles, }: Props) {
 
   const style = {
     default: css([
-      isCode && tw` font-code inline-block px-2 bg-blue-100 border-blue-500/20 text-blue-600 rounded-1 border `,
+      isCode && tw` font-code inline-block px-2 bg-blue-100 border-blue-500/40 text-blue-600 rounded-1 border `,
       styles,
     ]),
   };

@@ -28,7 +28,7 @@ export function Heading({
         text-ellipsis line-clamp-1 break-all text-black-500 hover:text-black-800 mb-2
       `,
       mode === 'post-title' && tw`
-        flex flex-row text-justify break-all text-black-base mb-5
+        flex flex-row text-justify break-all text-black-base mb-10
       `,
       mode === 'message' && tw`
         flex flex-row items-center justify-center

@@ -21,13 +21,21 @@ export default function PostPage({ post, }: Props) {
 
   const style = {
     button: css([
-      tw` block ml-auto mb-5 border border-blue-500/20 bg-blue-100 text-blue-600 p-1 px-2 rounded-2 hover:( text-white bg-blue-600 ) `,
+      tw` block ml-auto mb-5 border border-blue-500/40 bg-blue-100 text-blue-600 p-1 px-3 rounded-1 hover:( text-white bg-blue-600 ) `,
     ]),
   };
 
   return (
     <>
-      <AppLayout title={post.frontMatter.title}>
+      <AppLayout
+        title={post.frontMatter.title}
+        type='article'
+        created={post.frontMatter.created as number}
+        updated={post.frontMatter.updated as number}
+        section={post.frontMatter.category}
+        tags={post.frontMatter.tags.join(',')}
+        author='NIHILncunia'
+      >
         <div>
           <button onClick={onClickButton} css={style.button}>목록으로</button>
           <PostInfo post={post} />

@@ -35,10 +35,10 @@ export function PostMD({
       styles,
     ]),
     img: css([
-      tw` rounded-2 mb-5 `,
+      tw` rounded-2 mb-10 `,
     ]),
     hr: css([
-      tw` border-[0] border-b-[5px] border-black-base/70 border-dotted h-[5px] my-10 `,
+      tw` border-[0] border-b-2 border-black-base/30 border-dashed h-[5px] my-10 `,
     ]),
   };
 
@@ -49,6 +49,10 @@ export function PostMD({
         <MDXRemote {...content} components={CustomMDX} />
         <hr css={style.hr} />
         <CreativeCommons />
+      </Box>
+
+      <Box styles={tw` mt-10 `}>
+        여기에 덧글
       </Box>
     </>
   );

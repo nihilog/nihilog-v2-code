@@ -120,7 +120,7 @@ export function Pagination({
       tw` p-2 flex justify-center items-center rounded-2 bg-black-100 border border-black-200/20 `,
     ]),
     link: css([
-      tw` p-2 bg-blue-100 border border-blue-500/20 flex justify-center items-center rounded-2 `,
+      tw` p-2 bg-blue-100 border border-blue-500/40 flex justify-center items-center rounded-2 `,
       tw` hover:( bg-blue-500 text-white ) `,
     ]),
     numbers: css([

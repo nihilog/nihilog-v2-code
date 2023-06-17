@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import dayjs from 'dayjs';
 import { IMetaData } from '@/types/site.types';
 import { siteData } from '@/data/config.data';
 
@@ -21,6 +22,9 @@ export function Meta({ meta, }: IMetaProps) {
   const siteImage = image || `${siteData.url}${siteData.image}`;
   const siteType = type || siteData.type;
 
+  const articleCreated = `${dayjs(created).format('YYYY-MM-DDTHH:mm:ss')}.000Z`;
+  const articleUpdated = `${dayjs(updated).format('YYYY-MM-DDTHH:mm:ss')}.000Z`;
+
   return (
     <>
       <Head>
@@ -34,11 +38,11 @@ export function Meta({ meta, }: IMetaProps) {
 
         {siteType === 'article' && (
           <>
-            <meta property='article:section' content={meta.section} />
-            <meta property='article:tag' content={meta.tags} />
+            <meta property='article:section' content={section} />
+            <meta property='article:tag' content={tags} />
             <meta property='article:author' content={author} />
-            <meta property='article:published_time' content={meta.created} />
-            <meta property='article:modified_time' content={meta.updated} />
+            <meta property='article:published_time' content={articleCreated} />
+            <meta property='article:modified_time' content={articleUpdated} />
           </>
         )}
 

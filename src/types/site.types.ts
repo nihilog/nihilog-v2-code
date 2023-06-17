@@ -19,8 +19,8 @@ export interface IMetaData {
   type?: string;
   tags?: string;
   section?: string;
-  created?: string;
-  updated?: string;
+  created?: number;
+  updated?: number;
   image?: string;
 }
 

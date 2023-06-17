@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import tw, { css, TwStyle } from 'twin.macro';
 import { SerializedStyles } from '@emotion/react';
 import { useRouter } from 'next/router';
@@ -15,11 +15,22 @@ interface Props {
 
 export function PostItem({ post, styles, }: Props) {
   const [ classString, setClassString, ] = useState('image-hide');
+  const [ isCoverNone, setIsCoverNone, ] = useState(false);
+  const [ cover, setCover, ] = useState('');
+
   const router = useRouter();
 
-  const cover = post.frontMatter.cover
-    ? post.frontMatter.cover
-    : 'https://drive.google.com/uc?export=view&id=1SD9HD4JtWQip-4P24NoYgSj__iXXw3AT';
+  useEffect(() => {
+    if (post.frontMatter.cover === '') {
+      setCover('https://drive.google.com/uc?export=view&id=1SD9HD4JtWQip-4P24NoYgSj__iXXw3AT');
+      setIsCoverNone(true);
+      setClassString('image-show');
+    } else {
+      setCover(post.frontMatter.cover);
+      setIsCoverNone(false);
+      setClassString('image-hide');
+    }
+  }, [ post, ]);
 
   const onClickLink = useCallback(() => {
     router.push('/posts/[id]', post.fullPath);
@@ -32,12 +43,20 @@ export function PostItem({ post, styles, }: Props) {
   }, [ post, router, ]);
 
   const onMouseEnterImage = useCallback(() => {
+    if (isCoverNone) {
+      return;
+    }
+
     setClassString('image-show');
-  }, []);
+  }, [ isCoverNone, ]);
 
   const onMouseLeaveImage = useCallback(() => {
+    if (isCoverNone) {
+      return;
+    }
+
     setClassString('image-hide');
-  }, []);
+  }, [ isCoverNone, ]);
 
   const style = {
     default: css([
@@ -69,7 +88,6 @@ export function PostItem({ post, styles, }: Props) {
         className={classString}
         css={style.info}
       >
-        {/* TODO: 제목을 깔끔하게 줄이는 방법을 찾아보자. */}
         <Heading type='h3' styles={tw`text-white mb-5`}>{post.frontMatter.title}</Heading>
         <p css={tw`text-white flex-[1]`}>{setDate(post.frontMatter.created)}</p>
         <div css={tw`text-white flex items-center justify-start gap-1`}>

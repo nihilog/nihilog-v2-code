@@ -22,7 +22,7 @@ export function Ol({ children, styles, }: Props) {
 
   const style = {
     default: css([
-      olRef.current?.parentNode.nodeName !== 'LI' && tw` mb-5 `,
+      olRef.current?.parentNode.nodeName !== 'LI' && tw` mb-5 p-3 bg-black-100/50 rounded-2 border border-black-base/20 `,
       olRef.current?.parentNode.nodeName === 'LI' && tw` mb-0 `,
       (css`
         counter-reset: item;

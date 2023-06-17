@@ -17,7 +17,7 @@ export function PostInfoBlock({ name, children, styles, }: Props) {
       styles,
     ]),
     name: css([
-      tw` w-[90px] text-center block p-1 bg-black-700 rounded-1 text-white shrink-0 text-[90%] `,
+      tw` w-[90px] text-center block p-1 bg-black-700 rounded-1 text-white shrink-0 text-[80%] `,
     ]),
   };
 

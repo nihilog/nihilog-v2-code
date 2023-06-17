@@ -7,8 +7,8 @@ export interface IFrontMatter {
   cover?: string;
   tags?: string[];
   category?: string;
-  created?: Date | number;
-  updated?: Date | number;
+  created?: number | Date;
+  updated?: number | Date;
   published?: boolean;
 }
 

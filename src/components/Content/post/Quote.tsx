@@ -17,7 +17,7 @@ export function Quote({
   const style = {
     default: css([
       textStyle.textSize,
-      tw` p-3 border border-black-base/30 rounded-2 text-black-base bg-black-100 `,
+      tw` p-3 border border-black-base/20 rounded-2 text-black-base bg-black-100/50 `,
       tw` mb-5 `,
       styles,
     ]),

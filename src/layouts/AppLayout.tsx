@@ -46,10 +46,7 @@ export function AppLayout({
       tw` [*]:( box-border p-0 m-0 font-sans tracking-[-1px] ) `,
       tw`
         [body]:(
-          p-5 bg-black-50
-          mb-sm:(  )
-          mb-md:( bg-red-500 )
-          mb-lg:( bg-red-600 )
+          p-5 bg-black-100
         )
       `,
     ]),

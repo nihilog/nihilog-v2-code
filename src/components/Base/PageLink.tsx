@@ -28,11 +28,11 @@ export function PageLink({
         bg-black-100
       `,
       mode === 'button' && tw`
-        block p-3 text-center text-blue-600 rounded-2 bg-blue-100 border border-blue-500/20
+        block p-3 text-center text-blue-600 rounded-2 bg-blue-100 border border-blue-500/40
         hover:( bg-blue-500 text-white )
       `,
       mode === 'pagination' && tw`
-        block p-2 bg-blue-100 border border-blue-500/20 rounded-2
+        block p-2 bg-blue-100 border border-blue-500/40 rounded-2
         hover:( bg-blue-500 text-white )
       `,
       mode === 'page' && tw`

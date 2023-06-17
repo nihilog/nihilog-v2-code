@@ -34,14 +34,14 @@ export function ColorBox({ children, color, styles, }: Props) {
 
   const style = {
     default: css([
-      tw` border rounded-1 shadow-none mb-5 `,
+      tw` border-2 rounded-1 shadow-none mb-5 `,
       color === 'blue' && tw`
         bg-blue-100 border-blue-400/50
         [p,svg]:( text-blue-600! )
         [p]:nth-last-1:( mb-0 )
       `,
       color === 'red' && tw`
-        bg-red-100 border-red-400/30
+        bg-red-100 border-red-400/50
         [p,svg]:( text-red-600! )
         [p]:nth-last-1:( mb-0 )
       `,
