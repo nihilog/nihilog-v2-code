@@ -26,10 +26,10 @@ export default function TagPage({
 
   return (
     <>
-      <AppLayout title={`'${tag}' 태그 관련 포스트 목록`}>
+      <AppLayout title={`'${tag}' 태그 관련 포스트`}>
         <div css={style.default}>
           <Heading type='h2' mode='sub-title'>
-            {`'${tag}'`} 태그 관련 포스트 목록 총 {list.length}건
+            {`'${tag}'`} 태그 관련 포스트 총 {list.length}건
           </Heading>
           <PostList posts={list} />
           <Pagination currentPage={page} totalPage={totalPage} type='tag' keyword={tag} />

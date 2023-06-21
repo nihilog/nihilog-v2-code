@@ -26,10 +26,10 @@ export default function CategoryPage({
 
   return (
     <>
-      <AppLayout title={`'${category}' 카테고리 관련 포스트 목록`}>
+      <AppLayout title={`'${category}' 카테고리 관련 포스트`}>
         <div css={style.default}>
           <Heading type='h2' mode='sub-title'>
-            {`'${category}'`} 카테고리 관련 포스트 목록 총 {list.length}건
+            {`'${category}'`} 카테고리 관련 포스트 총 {list.length}건
           </Heading>
           <PostList posts={list} />
           <Pagination currentPage={page} totalPage={totalPage} type='category' keyword={category} />

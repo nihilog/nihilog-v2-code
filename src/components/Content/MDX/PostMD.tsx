@@ -5,6 +5,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { CustomMDX } from './CustomMDX';
 import { Box } from '@/components/Base';
 import { CreativeCommons } from '../CreativeCommons';
+import { Giscus } from '../Giscus';
 
 interface Props {
   content: MDXRemoteSerializeResult;
@@ -52,7 +53,7 @@ export function PostMD({
       </Box>
 
       <Box styles={tw` mt-10 `}>
-        여기에 덧글
+        <Giscus />
       </Box>
     </>
   );

@@ -40,7 +40,7 @@ export function Li({ children, styles, }: Props) {
 
   const style = {
     default: css([
-      tw` break-all `,
+      tw` break-all text-black-base `,
       parentList === 'UL' && isMainItem && !isTaskItem && tw` mt-1 nth-1:mt-0 before:( mr-1 content-[url('https://api.iconify.design/eva/arrow-right-fill.svg?color=%23333')] ) `,
       parentList === 'UL' && !isMainItem && !isTaskItem && tw` mt-1 before:( mr-1 content-[url('https://api.iconify.design/eva/arrow-right-outline.svg?color=%23333')] ) `,
       styles,

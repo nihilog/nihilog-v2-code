@@ -7,6 +7,7 @@ import { getPostList } from '@/utils/posts';
 import { Pagination, PostList } from '@/components/Content';
 import { IMDXList } from '@/types/mdx.types';
 import { siteData } from '@/data';
+import { Heading } from '@/components/Base';
 
 interface IPostListPage {
   totalPage: number;
@@ -25,6 +26,9 @@ export default function PostListPage({ totalPage, page, list, }: IPostListPage) 
     <>
       <AppLayout title='포스트 목록'>
         <div css={style.default}>
+          <Heading type='h2' mode='sub-title'>
+            총 포스트 {list.length}건
+          </Heading>
           <PostList posts={list} />
           <Pagination currentPage={page} totalPage={totalPage} />
         </div>

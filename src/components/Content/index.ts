@@ -9,3 +9,4 @@ export * from './ItemList';
 export * from './PostInfo';
 export * from './PostInfoBlock';
 export * from './CreativeCommons';
+export * from './Giscus';

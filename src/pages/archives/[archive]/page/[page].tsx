@@ -26,10 +26,10 @@ export default function ArchivePage({
 
   return (
     <>
-      <AppLayout title={`'${archive}' 포스트 목록`}>
+      <AppLayout title={`'${archive}' 포스트`}>
         <div css={style.default}>
           <Heading type='h2' mode='sub-title'>
-            {`'${archive}'`} 포스트 목록 총 {list.length}건
+            {`'${archive}'`} 포스트 총 {list.length}건
           </Heading>
           <PostList posts={list} />
           <Pagination currentPage={page} totalPage={totalPage} type='archive' keyword={archive} />

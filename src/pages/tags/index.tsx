@@ -31,7 +31,9 @@ export default function TagIndexPage({ tags, }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const tags = getItemData('tag');
+  const tags = getItemData('tag').sort((a, b) => (
+    b.count - a.count
+  ));
 
   return {
     props: {

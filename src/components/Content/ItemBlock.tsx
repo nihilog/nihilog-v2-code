@@ -47,7 +47,7 @@ export function ItemBlock({ data, type, styles, }: Props) {
         css={style.default}
       >
         <span css={style.name}><Icon icon={data.icon} /> {data.data}</span>
-        <span css={style.count}>{data.count}</span>
+        <span css={style.count}>{data.count}건</span>
       </Link>
     </>
   );
