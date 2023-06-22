@@ -10,23 +10,24 @@ interface Props {
 export function CreativeCommons({ styles, }: Props) {
   const style = {
     default: css([
-      tw` flex flex-row items-center justify-between text-black-base `,
+      tw` bg-black-400 flex flex-col gap-2 rounded-2 items-end p-2 border border-black-base/50 `,
       styles,
     ]),
-    ccl: css([
-      tw` inline-flex flex-row p-1 rounded-1 border border-black-base/30 `,
+    message: css([
+      tw` text-white `,
     ]),
-    user: css([
-      tw` p-1 px-2 rounded-1 border bg-blue-100 border-blue-500/40 text-blue-600 `,
-      tw` hover:( bg-blue-600 text-white ) `,
+    ccl: css([
+      tw` bg-white text-black-base py-1 px-2 flex flex-row gap-1 rounded-2 `,
     ]),
   };
 
   return (
     <>
       <div css={style.default}>
-        이 포스트는 다음과 같은 CCL을 따릅니다.
-        <div css={style.ccl} title='CC-BY-SA'>
+        <div css={style.message}>
+          이 포스트는 다음과 같은 CCL을 따릅니다. (CC-BY-SA)
+        </div>
+        <div css={style.ccl}>
           <Icon icon='ri:creative-commons-line' fontSize={30} />
           <Icon icon='ri:creative-commons-by-line' fontSize={30} />
           <Icon icon='ri:creative-commons-sa-line' fontSize={30} />

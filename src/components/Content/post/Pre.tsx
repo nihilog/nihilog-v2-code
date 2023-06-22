@@ -72,7 +72,7 @@ export function Pre({ children, className, styles, }: Props) {
     default: css([
       tw` rounded-b-1 mb-5 overflow-scroll `,
       tw` font-code py-3 [code]:( font-code [span]:( font-code ) ) `,
-      tw` [code>span]:( block pl-3 w-full ) `,
+      tw` [code>span]:( block pl-3 w-full py-[2px] ) `,
       styles,
     ]),
     lang: css([

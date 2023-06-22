@@ -10,3 +10,4 @@ export * from './PostInfo';
 export * from './PostInfoBlock';
 export * from './CreativeCommons';
 export * from './Giscus';
+export * from './Toc';

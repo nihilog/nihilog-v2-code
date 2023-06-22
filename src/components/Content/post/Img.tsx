@@ -51,15 +51,15 @@ export function Img({ src, alt, styles, }: Props) {
     zoomImage: css([
       tw` w-[100vw] h-[100vh] z-10 bg-black-base/90 fixed top-0 left-0 flex flex-col shrink-0 `,
       tw` [.modal-top]:(
-        w-full h-[50px]
+        w-full h-[70px]
         [.close-button]:( ml-auto text-white cursor-pointer )
       ) `,
       tw` [.modal-middle]:(
         flex-1 shrink-0 flex flex-row justify-center items-center w-full h-[100vh - 100px]
-        [img]:( max-h-[calc(100vh - 100px)] w-auto  )
+        [img]:( max-h-[calc(100vh - 140px)] w-auto  )
       ) `,
       tw` [.modal-bottom]:(
-        w-full h-[50px] flex flex-row items-center justify-center
+        w-full h-[70px] flex flex-row items-center justify-center
         [a]:(
           p-1 px-2 bg-blue-200 text-blue-600 rounded-1 border border-blue-500/40 text-[90%]
           [&:hover]:( bg-blue-600 text-white )
