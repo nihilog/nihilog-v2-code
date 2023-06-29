@@ -1,13 +1,14 @@
 import {
-  IArchivePage, ICategoryPage, IMDXList, ITagPage
+  IArchivePage, ICategoryPage, IClusterPage, IMDXList, ITagPage
 } from '@/types/mdx.types';
 import { getItemData } from './getItemData';
 import { parseJson } from './parseJson';
 
-export const getItemDataPage = (type: ('tag' | 'category' | 'archive')) => {
+export const getItemDataPage = (type: ('tag' | 'category' | 'archive' | 'cluster')) => {
   const categoryPageArray: ICategoryPage[] = [];
   const tagPageArray: ITagPage[] = [];
   const archivePageArray: IArchivePage[] = [];
+  const clusterPageArray: IClusterPage[] = [];
 
   const itemData = getItemData(type);
 
@@ -26,6 +27,10 @@ export const getItemDataPage = (type: ('tag' | 'category' | 'archive')) => {
       postList = parseJson().filter(
         (post) => post.slug.match(item.data) !== null
       );
+    } else if (type === 'cluster') {
+      postList = parseJson().filter((post) => {
+        return post.frontMatter.cluster.length > 0;
+      });
     }
 
     const totalPage = postList.length;
@@ -53,6 +58,13 @@ export const getItemDataPage = (type: ('tag' | 'category' | 'archive')) => {
               page: (number + 1).toString(),
             },
           });
+        } else if (type === 'cluster') {
+          clusterPageArray.push({
+            params: {
+              cluster: item.data,
+              page: (number + 1).toString(),
+            },
+          });
         }
       }
     );
@@ -64,5 +76,7 @@ export const getItemDataPage = (type: ('tag' | 'category' | 'archive')) => {
     return categoryPageArray;
   } else if (type === 'archive') {
     return archivePageArray;
+  } else if (type === 'cluster') {
+    return clusterPageArray;
   }
 };

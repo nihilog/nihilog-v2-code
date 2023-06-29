@@ -24,6 +24,7 @@ export function Nav({ styles, }: Props) {
         <PageLink href='/info' mode='nav'>소개</PageLink>
         <PageLink href='/posts/page/1' mode='nav'>포스트 목록</PageLink>
         <PageLink href='/categories' mode='nav'>카테고리</PageLink>
+        <PageLink href='/clusters' mode='nav'>시리즈</PageLink>
         <PageLink href='/tags' mode='nav'>태그 클라우드</PageLink>
         <PageLink href='/archives' mode='nav'>아카이브</PageLink>
       </nav>

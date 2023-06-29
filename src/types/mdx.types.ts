@@ -6,6 +6,7 @@ export interface IFrontMatter {
   description?: string;
   cover?: string;
   tags?: string[];
+  cluster?: [string, number];
   category?: string;
   created?: number | Date;
   updated?: number | Date;
@@ -46,6 +47,13 @@ export interface IArchivePage {
 export interface ITagPage {
   params: {
     tag: string;
+    page: string;
+  }
+}
+
+export interface IClusterPage {
+  params: {
+    cluster: string;
     page: string;
   }
 }

@@ -1,7 +1,7 @@
 import { IItemData } from '@/types/mdx.types';
 import { parseJson } from './parseJson';
 
-export const getItemData = (type: ('tag' | 'category' | 'archive')) => {
+export const getItemData = (type: ('tag' | 'category' | 'archive' | 'cluster')) => {
   const items: string[] = [];
 
   parseJson().forEach((post) => {
@@ -13,6 +13,10 @@ export const getItemData = (type: ('tag' | 'category' | 'archive')) => {
       const yearMonth = post.slug.match((/(^\d{4}-\d{2})/));
 
       items.push(yearMonth[0]);
+    } else if (type === 'cluster') {
+      if (post.frontMatter.cluster.length > 0) {
+        items.push(post.frontMatter.cluster[0]);
+      }
     }
   });
 
@@ -22,7 +26,9 @@ export const getItemData = (type: ('tag' | 'category' | 'archive')) => {
       ? 'material-symbols:tag'
       : type === 'category'
         ? 'material-symbols:folder'
-        : 'material-symbols:archive';
+        : type === 'archive'
+          ? 'material-symbols:archive'
+          : 'fluent:board-24-filled';
 
     if (itemInfo) {
       itemInfo.count++;

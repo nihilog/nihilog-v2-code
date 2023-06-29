@@ -8,7 +8,7 @@ import { textStyle } from '@/styles';
 
 interface Props {
   data: IItemData;
-  type: ('category' | 'tag' | 'archive');
+  type: ('category' | 'tag' | 'archive' | 'cluster');
   styles?: SerializedStyles;
 }
 
@@ -17,12 +17,16 @@ export function ItemBlock({ data, type, styles, }: Props) {
     ? 'categories'
     : type === 'tag'
       ? 'tags'
-      : 'archives';
+      : type === 'archive'
+        ? 'archives'
+        : 'clusters';
   const dataType = type === 'category'
     ? 'category'
     : type === 'tag'
       ? 'tag'
-      : 'archive';
+      : type === 'archive'
+        ? 'archive'
+        : 'cluster';
 
   const style = {
     default: css([
@@ -41,14 +45,25 @@ export function ItemBlock({ data, type, styles, }: Props) {
 
   return (
     <>
-      <Link
-        href={`/${dataCategory}/[${dataType}]/page/[page]`}
-        as={`/${dataCategory}/${data.data}/page/1`}
-        css={style.default}
-      >
-        <span css={style.name}><Icon icon={data.icon} /> {data.data}</span>
-        <span css={style.count}>{data.count}건</span>
-      </Link>
+      {type === 'cluster' ? (
+        <Link
+          href={`/${dataCategory}/[${dataType}]`}
+          as={`/${dataCategory}/${data.data}`}
+          css={style.default}
+        >
+          <span css={style.name}><Icon icon={data.icon} /> {data.data}</span>
+          <span css={style.count}>{data.count}건</span>
+        </Link>
+      ) : (
+        <Link
+          href={`/${dataCategory}/[${dataType}]/page/[page]`}
+          as={`/${dataCategory}/${data.data}/page/1`}
+          css={style.default}
+        >
+          <span css={style.name}><Icon icon={data.icon} /> {data.data}</span>
+          <span css={style.count}>{data.count}건</span>
+        </Link>
+      )}
     </>
   );
 }

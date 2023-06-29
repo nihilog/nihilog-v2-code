@@ -6,7 +6,7 @@ import { ItemBlock } from './ItemBlock';
 
 interface Props {
   data: IItemData[];
-  type: ('tag' | 'category' | 'archive');
+  type: ('tag' | 'category' | 'archive' | 'cluster');
   styles?: SerializedStyles;
 }
 
