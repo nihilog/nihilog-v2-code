@@ -30,6 +30,17 @@ export function PostInfo({ post, styles, }: Props) {
     <>
       <Box styles={style.default}>
         <Heading type='h1' mode='post-title'>{post.frontMatter.title}</Heading>
+        {post.frontMatter.cluster.length > 0 && (
+          <PostInfoBlock name='시리즈'>
+            <Link
+              href='/clusters/[cluster]'
+              as={`/clusters/${post.frontMatter.cluster[0]}`}
+              css={style.item}
+            >
+              <Icon icon='fluent:board-24-filled' /> {post.frontMatter.cluster[0]}
+            </Link>
+          </PostInfoBlock>
+        )}
         <PostInfoBlock name='카테고리'>
           <Link
             href='/categories/[category]/page/[page]'
