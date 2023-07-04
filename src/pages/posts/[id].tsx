@@ -15,6 +15,10 @@ interface Props {
 export default function PostPage({ post, }: Props) {
   const router = useRouter();
 
+  const title = post.frontMatter.cluster.length > 0
+    ? `[${post.frontMatter.cluster[0]}] ${post.frontMatter.title}`
+    : post.frontMatter.title;
+
   const onClickButton = useCallback(() => {
     router.back();
   }, [ router, ]);
@@ -28,7 +32,7 @@ export default function PostPage({ post, }: Props) {
   return (
     <>
       <AppLayout
-        title={post.frontMatter.title}
+        title={title}
         type='article'
         created={post.frontMatter.created as number}
         updated={post.frontMatter.updated as number}
@@ -42,7 +46,7 @@ export default function PostPage({ post, }: Props) {
           <PostMD
             content={post.content}
             cover={post.frontMatter.cover}
-            title={post.frontMatter.title}
+            title={title}
           />
         </div>
       </AppLayout>

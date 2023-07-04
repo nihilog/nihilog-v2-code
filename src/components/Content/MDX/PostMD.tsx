@@ -21,7 +21,6 @@ export function PostMD({
   content, cover, title, styles,
 }: Props) {
   const [ imageCover, setImageCover, ] = useState('');
-  const [ imageAlt, setImageAlt, ] = useState('');
   const [ toc, setToc, ] = useState<IH2[]>([]);
 
   const divRef = useRef<HTMLDivElement>(null);
@@ -85,10 +84,8 @@ export function PostMD({
   useEffect(() => {
     if (cover) {
       setImageCover(cover);
-      setImageAlt(title);
     } else {
       setImageCover('https://drive.google.com/uc?export=view&id=1SD9HD4JtWQip-4P24NoYgSj__iXXw3AT');
-      setImageAlt('기본 이미지');
     }
   }, [ cover, ]);
 
@@ -109,7 +106,7 @@ export function PostMD({
     <>
       <Box styles={style.default}>
         <div ref={divRef}>
-          <img src={imageCover} alt={imageAlt} css={style.img} />
+          <img src={imageCover} alt={title} css={style.img} />
           <Toc toc={toc} />
           <MDXRemote {...content} components={CustomMDX} />
           <hr css={style.hr} />

@@ -18,6 +18,10 @@ export function PostItem({ post, styles, }: Props) {
   const [ isCoverNone, setIsCoverNone, ] = useState(false);
   const [ cover, setCover, ] = useState('');
 
+  const title = post.frontMatter.cluster.length > 0
+    ? `[${post.frontMatter.cluster[0]}] ${post.frontMatter.title}`
+    : post.frontMatter.title;
+
   const router = useRouter();
 
   useEffect(() => {
@@ -82,13 +86,13 @@ export function PostItem({ post, styles, }: Props) {
       onMouseEnter={onMouseEnterImage}
       onMouseLeave={onMouseLeaveImage}
     >
-      <img src={cover} alt={post.frontMatter.title} />
+      <img src={cover} alt={title} />
       <div
         role='link'
         className={classString}
         css={style.info}
       >
-        <Heading type='h3' styles={tw`text-white mb-5`}>{post.frontMatter.title}</Heading>
+        <Heading type='h3' styles={tw`text-white mb-5`}>{title}</Heading>
         <p css={tw`text-white flex-[1]`}>{setDate(post.frontMatter.created)}</p>
         <div css={tw`text-white flex items-center justify-start gap-1`}>
           <span>카테고리</span>

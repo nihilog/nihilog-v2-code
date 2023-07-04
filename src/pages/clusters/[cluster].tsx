@@ -27,7 +27,7 @@ export default function ClusterPostListPage({ posts, cluster, }: Props) {
       tw` rounded-l-1 p-1 px-3 flex items-center justify-end border border-black-500 bg-black-500 text-white `,
     ]),
     itemContainer: css([
-      tw` flex flex-row mb-2 nth-last-1:mb-0 `,
+      tw` flex flex-row mb-3 nth-last-1:mb-0 `,
     ]),
   };
 
